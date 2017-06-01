@@ -31,3 +31,14 @@ p{
   margin: 3px 0;
   font-size: 17px;
 }
+
+#header {
+  width: 100%;
+  height: 400px;
+  background-image: url(img/titus-aparici-260930.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+}
+

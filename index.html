@@ -3,21 +3,60 @@
   <head>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body ng-controller="mainCtrl">
-    <div class="main-container">
-      <h1> DevMountain Chat Room </h1>
+    <div class="main-container" layout="column" layout-align="center">
+
+      <div flex id="header">
+        <h1> John's Mountain Chat Room </h1>
+
+      </div>
+        <br />
+      <div flex>
       <form ng-submit="postMessage(message)">
         <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
       </form>
-      <div class="messages-container">
-        <p ng-repeat="message in messages ">
-          {{message.message}} </p>
+      <hr />
+
       </div>
+
+      <div flex>
+
+      <div class="messages-container">
+        <section>
+
+          <md-toolbar md-scroll-shrink ng-if="true">
+            <div class="md-toolbar-tools">Messages</div>
+          </md-toolbar>
+
+
+          <md-list layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="message in messages | orderBy: message.createdAt">
+
+              <div class="md-list-item-text">{{message.message}}
+                <br />
+                {{message.createdAt}}</div>
+            </md-list-item>
+          </md-list>
+
+        </section>
+      </div>
+      </div>
+
+     <footer>
+
+     </footer>
     </div>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
     <script src="js/app.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/messageService.js"></script>
